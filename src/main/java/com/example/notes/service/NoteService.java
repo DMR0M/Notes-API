@@ -62,6 +62,4 @@ public class NoteService {
         System.out.println(value);
         return value > 5;
     }
-
-    // TODO: Implement exception handling for all possible operations
 }

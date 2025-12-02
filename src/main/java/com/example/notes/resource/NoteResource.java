@@ -184,6 +184,4 @@ public class NoteResource {
                         .build()
                 );
     }
-
-    // TODO: Implement exception handling for all possible operations
 }
