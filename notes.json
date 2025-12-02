@@ -48,6 +48,13 @@
     "createdAt" : 1764679091755,
     "updatedAt" : 1764679091755
   },
+  "17082626-3ad9-4ec8-a706-0685b02f8067" : {
+    "id" : "17082626-3ad9-4ec8-a706-0685b02f8067",
+    "title" : "Java Learning 101",
+    "content" : "Study Java functional interfaces",
+    "createdAt" : 1764691642157,
+    "updatedAt" : 1764691642157
+  },
   "9cdcaa66-c80e-4e02-b3dc-bccb6e6fc15a" : {
     "id" : "9cdcaa66-c80e-4e02-b3dc-bccb6e6fc15a",
     "title" : "Fitness Plan",
@@ -69,11 +76,11 @@
     "createdAt" : 1764679082627,
     "updatedAt" : 1764679082627
   },
-  "5f609d1c-56ae-4ed4-a15c-83f1050463ac" : {
-    "id" : "5f609d1c-56ae-4ed4-a15c-83f1050463ac",
-    "title" : "This is a test title 25",
-    "content" : "67 yeah!",
-    "createdAt" : 1764688385748,
-    "updatedAt" : 1764688963861
+  "ca3b2083-0c33-4e28-a71e-178fc20da44e" : {
+    "id" : "ca3b2083-0c33-4e28-a71e-178fc20da44e",
+    "title" : "Java Learning 101",
+    "content" : "Study Java Streams API",
+    "createdAt" : 1764691670501,
+    "updatedAt" : 1764691670501
   }
 }
