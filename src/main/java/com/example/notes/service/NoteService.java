@@ -1,6 +1,7 @@
 package com.example.notes.service;
 
 import com.example.notes.entity.Note;
+import com.example.notes.exception.NoteNotFoundException;
 import com.example.notes.repository.NoteRepository;
 import io.smallrye.mutiny.Multi;
 import io.smallrye.mutiny.Uni;
@@ -27,12 +28,14 @@ public class NoteService {
     }
 
     public Multi<Note> listNotes() {
-
         return repo.list();
     }
 
     public Uni<Note> getNote(String id) {
-        return repo.findNoteById(id);
+        return repo.findNoteById(id)
+                .onItem()
+                .ifNull()
+                .failWith(new NoteNotFoundException(id));
     }
 
     public Multi<Note> searchNotes(String title, String content) {
@@ -40,19 +43,25 @@ public class NoteService {
     }
 
     public Uni<Note> updateNote(String id, String title, String content) {
-        return shouldIThrowAnError()
-                ? Uni.createFrom().failure(new Exception("The error devil called you!"))
-                : repo.update(id, title, content);
+        return repo.update(id, title, content)
+                .onItem()
+                .ifNull()
+                .failWith(new NoteNotFoundException(id));
     }
 
     public Uni<Note> deleteNote(String id) {
-        return repo.delete(id);
+        return repo.delete(id)
+                .onItem()
+                .ifNull()
+                .failWith(new NoteNotFoundException(id));
     }
 
     boolean shouldIThrowAnError() {
         Random random = new Random();
         int value = random.nextInt(10);
-
+        System.out.println(value);
         return value > 5;
     }
+
+    // TODO: Implement exception handling for all possible operations
 }

@@ -1,6 +1,7 @@
 package com.example.notes.resource;
 
 import com.example.notes.entity.CustomResponse;
+import com.example.notes.exception.NoteNotFoundException;
 import com.example.notes.request.NoteDTO;
 import com.example.notes.service.NoteService;
 import com.example.notes.entity.Note;
@@ -45,7 +46,8 @@ public class NoteResource {
     @POST
     public Uni<Response> create(Note note) {
         return service.createNote(note.getTitle(), note.getContent())
-                .onItem().transform(createNote -> Response.status(Response.Status.CREATED)
+                .onItem()
+                .transform(createNote -> Response.status(Response.Status.CREATED)
                         .entity(new CustomResponse<>("Note created successfully!", createNote))
                         .build()
                 );
@@ -64,9 +66,10 @@ public class NoteResource {
         return service.listNotes()
                 .collect()
                 .asList()
-                .onItem().transform(notes -> Response.ok(
-                        new CustomResponse<>("All notes retrieved!", notes)
-                ).build());
+                .onItem().transform(notes -> {
+                    String message = notes.isEmpty() ? "No notes found" : "All notes retrieved!";
+                    return Response.ok(new CustomResponse<>(message, notes)).build();
+                });
     }
 
     /**
@@ -81,12 +84,13 @@ public class NoteResource {
     @Path("/{id}")
     public Uni<Response> getNoteById(@PathParam("id") String id) {
         return service.getNote(id)
-                .onItem().ifNotNull().transform(note -> Response.ok(
+                .onItem()
+                .transform(note -> Response.ok(
                         new CustomResponse<>("Note found!", note)).build()
                 )
-                .onItem().ifNull().continueWith(Response
-                        .status(Response.Status.NOT_FOUND)
-                        .entity(new CustomResponse<>("Note not found", null))
+                .onFailure(NoteNotFoundException.class)
+                .recoverWithItem((ex) -> Response.status(Response.Status.NOT_FOUND)
+                        .entity(new CustomResponse<>(ex.getMessage(), null))
                         .build()
                 );
     }
@@ -115,10 +119,13 @@ public class NoteResource {
         }
 
         return service.searchNotes(title, content)
-                .collect().asList()
-                .onItem().transform(notes -> Response.ok(
-                        new CustomResponse<>("Notes retrieved!", notes)
-                ).build());
+                .collect()
+                .asList()
+                .onItem()
+                .transform(notes -> {
+                    String message = notes.isEmpty() ? "No notes found that matches the title or content" : "Notes retrieved!";
+                    return Response.ok(new CustomResponse<>(message, notes)).build();
+                });
     }
 
     /**
@@ -144,11 +151,13 @@ public class NoteResource {
         }
 
         return service.updateNote(id, note.getTitle(), note.getContent())
-                .onItem().ifNotNull().transform(updatedNote -> Response.ok(
+                .onItem()
+                .transform(updatedNote -> Response.ok(
                         new CustomResponse<>("Note updated!", updatedNote)).build()
                 )
-                .onItem().ifNull().continueWith(Response.status(Response.Status.NOT_FOUND)
-                        .entity(new CustomResponse<>("Update failed no note found", null))
+                .onFailure(NoteNotFoundException.class)
+                .recoverWithItem((ex) -> Response.status(Response.Status.NOT_FOUND)
+                        .entity(new CustomResponse<>(ex.getMessage(), null))
                         .build()
                 );
     }
@@ -165,12 +174,16 @@ public class NoteResource {
     @Path("/{id}")
     public Uni<Response> deleteNote(@PathParam("id") String id) {
         return service.deleteNote(id)
-                .onItem().ifNotNull().transform(deletedNote -> Response.ok(
+                .onItem()
+                .transform(deletedNote -> Response.ok(
                         new CustomResponse<>("Note deleted successfully!", deletedNote)).build()
                 )
-                .onItem().ifNull().continueWith(Response.status(Response.Status.NOT_FOUND)
-                        .entity(new CustomResponse<>("Delete failed no note found", null))
+                .onFailure(NoteNotFoundException.class)
+                .recoverWithItem((ex) -> Response.status(Response.Status.NOT_FOUND)
+                        .entity(new CustomResponse<>(ex.getMessage(), null))
                         .build()
                 );
     }
+
+    // TODO: Implement exception handling for all possible operations
 }
