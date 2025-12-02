@@ -1,62 +1,20 @@
 package com.example.notes.entity;
 
-public class Note {
-    private String id;
-
-    private String title;
-
-    private String content;
-
-    private long createdAt;
-
-    private long updatedAt;
-
-    public Note() { }
-
-    public Note(String id, String title, String content, long createdAt) {
-        this.id = id;
-        this.title = title;
-        this.content = content;
-        this.createdAt = createdAt;
+public record Note(
+        String id,
+        String title,
+        String content,
+        long createdAt,
+        long updatedAt
+) {
+    // Factory method for creating a Note without setting the value for updatedAt field
+    public static Note create(String id, String title, String content) {
+        long timeNow = System.currentTimeMillis();
+        return new Note(id, title, content, timeNow, timeNow);
     }
 
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public String getContent() {
-        return content;
-    }
-
-    public void setContent(String content) {
-        this.content = content;
-    }
-
-    public long getCreatedAt() {
-        return createdAt;
-    }
-
-    public void setCreatedAt(long createdAt) {
-        this.createdAt = createdAt;
-    }
-
-    public long getUpdatedAt() {
-        return updatedAt;
-    }
-
-    public void setUpdatedAt(long updatedAt) {
-        this.updatedAt = updatedAt;
+    public Note withTitleAndContent(String newTitle, String newContent) {
+        long timeNow = System.currentTimeMillis();
+        return new Note(id, newTitle, newContent, createdAt, timeNow);
     }
 }

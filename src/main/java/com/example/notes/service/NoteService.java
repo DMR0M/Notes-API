@@ -17,13 +17,11 @@ public class NoteService {
     NoteRepository repo;
 
     public Uni<Note> createNote(String title, String content) {
-        Note note = new Note(
+        Note note = Note.create(
                 UUID.randomUUID().toString(),
                 title,
-                content,
-                System.currentTimeMillis()
+                content != null ? content : ""
         );
-
         return repo.create(note);
     }
 
@@ -59,7 +57,6 @@ public class NoteService {
     boolean shouldIThrowAnError() {
         Random random = new Random();
         int value = random.nextInt(10);
-        System.out.println(value);
         return value > 5;
     }
 }

@@ -2,9 +2,8 @@ package com.example.notes.resource;
 
 import com.example.notes.entity.CustomResponse;
 import com.example.notes.exception.NoteNotFoundException;
-import com.example.notes.request.NoteDTO;
+import com.example.notes.request.NoteRequest;
 import com.example.notes.service.NoteService;
-import com.example.notes.entity.Note;
 import io.smallrye.mutiny.Multi;
 import io.smallrye.mutiny.Uni;
 import jakarta.inject.Inject;
@@ -40,12 +39,23 @@ public class NoteResource {
     /**
      * Creates a new note.
      *
-     * @param note the Note object containing title and content to be created
-     * @return a Uni emitting a Response with status 201 (Created) and the created note as entity
+     * @param noteRequest the Note object containing title and content to be created
+     * @return a Uni emitting a Response:
+     *  - 201 (Created) and the created note as entity
+     *  - 400 (Bad Request) if note request has a null or blank title
      */
     @POST
-    public Uni<Response> create(Note note) {
-        return service.createNote(note.getTitle(), note.getContent())
+    public Uni<Response> createNote(NoteRequest noteRequest) {
+        // Handle no passed fields from the request body
+        if (noteRequest.title() == null || noteRequest.title().isBlank()) {
+            return Uni.createFrom()
+                    .item(Response.status(Response.Status.BAD_REQUEST)
+                    .entity(new CustomResponse<>("Title is a required field", null))
+                    .build()
+            );
+        }
+
+        return service.createNote(noteRequest.title(), noteRequest.content())
                 .onItem()
                 .transform(createNote -> Response.status(Response.Status.CREATED)
                         .entity(new CustomResponse<>("Note created successfully!", createNote))
@@ -133,7 +143,7 @@ public class NoteResource {
      * Only non-null fields in the NoteDTO are updated.
      *
      * @param id   the ID of the note to update
-     * @param note a NoteDTO containing fields to update; at least one field must be non-null
+     * @param noteRequest a NoteDTO containing fields to update; at least one field must be non-null
      * @return a Uni emitting a Response:
      *         - 200 OK with updated note if update succeeds
      *         - 400 Bad Request if no fields are provided
@@ -141,19 +151,20 @@ public class NoteResource {
      */
     @PATCH
     @Path("/{id}")
-    public Uni<Response> patchNote(@PathParam("id") String id, NoteDTO note) {
+    public Uni<Response> patchNote(@PathParam("id") String id, NoteRequest noteRequest) {
         // Handle no passed fields from the request body
-        if (note.getTitle() == null && note.getContent() == null) {
+        if (noteRequest.title() == null && noteRequest.content() == null) {
             return Uni.createFrom().item(Response.status(Response.Status.BAD_REQUEST)
                     .entity(new CustomResponse<>("No fields provided to update", null))
                     .build()
             );
         }
 
-        return service.updateNote(id, note.getTitle(), note.getContent())
+        return service.updateNote(id, noteRequest.title(), noteRequest.content())
                 .onItem()
                 .transform(updatedNote -> Response.ok(
-                        new CustomResponse<>("Note updated!", updatedNote)).build()
+                        new CustomResponse<>("Note updated!", updatedNote))
+                        .build()
                 )
                 .onFailure(NoteNotFoundException.class)
                 .recoverWithItem((ex) -> Response.status(Response.Status.NOT_FOUND)

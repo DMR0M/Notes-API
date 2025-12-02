@@ -54,7 +54,7 @@ public class NoteRepository {
     }
 
     public Uni<Note> create(Note note) {
-        storage.put(note.getId(), note);
+        storage.put(note.id(), note);
         persist();
         return Uni.createFrom().item(note);
     }
@@ -72,9 +72,9 @@ public class NoteRepository {
     public Multi<Note> findByTitleOrContent(String title, String content) {
         return Multi.createFrom().iterable(storage.values())
                 .filter(note -> {
-                        boolean matchesTitle = title != null && note.getTitle().toLowerCase()
+                        boolean matchesTitle = title != null && note.title().toLowerCase()
                                 .contains(title.toLowerCase());
-                        boolean matchesContent = content != null && note.getContent().toLowerCase()
+                        boolean matchesContent = content != null && note.content().toLowerCase()
                                 .contains(content.toLowerCase());
 
                         return matchesTitle || matchesContent;
@@ -84,14 +84,19 @@ public class NoteRepository {
     public Uni<Note> update(String id, String title, String content) {
         Note existingNote = storage.get(id);
 
-        if (existingNote != null) {
-            existingNote.setTitle(title != null ? title : existingNote.getTitle());
-            existingNote.setContent(content != null ? content : existingNote.getContent());
-            existingNote.setUpdatedAt(System.currentTimeMillis());
-            persist();
+        if (existingNote == null) {
+            return Uni.createFrom().item(null);
         }
 
-        return Uni.createFrom().item(existingNote);
+        Note updatedNote = existingNote.withTitleAndContent(
+                title != null ? title : existingNote.title(),
+                content != null ? content : existingNote.content()
+        );
+
+        storage.put(id, updatedNote);
+        persist();
+
+        return Uni.createFrom().item(updatedNote);
     }
 
 

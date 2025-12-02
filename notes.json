@@ -1,128 +1,79 @@
 {
-  "8d19f11c-673d-4b8a-bd15-3898d9455327" : {
-    "id" : "8d19f11c-673d-4b8a-bd15-3898d9455327",
-    "title" : "This is a test title",
-    "content" : "Hello World",
-    "createdAt" : 1764438506679,
-    "updatedAt" : 1764596447012
-  },
-  "b71c5e87-9072-44d2-a541-ad55fc359a72" : {
-    "id" : "b71c5e87-9072-44d2-a541-ad55fc359a72",
-    "title" : "Understanding Reactive Streams",
-    "content" : "Mutiny Uni and Multi help handle async operations elegantly.",
-    "createdAt" : 1764342902184,
-    "updatedAt" : 0
-  },
-  "74297937-c280-443b-bf6e-ba84f0491df6" : {
-    "id" : "74297937-c280-443b-bf6e-ba84f0491df6",
+  "c4221e36-6564-4b2a-a86e-e25fa05167fa" : {
+    "id" : "c4221e36-6564-4b2a-a86e-e25fa05167fa",
     "title" : "Linux Commands Review",
     "content" : "df -h shows disk usage in human readable format.",
-    "createdAt" : 1764342951393,
-    "updatedAt" : 0
+    "createdAt" : 1764679108098,
+    "updatedAt" : 1764679108098
   },
-  "3690dd31-8e86-414f-aa6f-c0abe3877d9f" : {
-    "id" : "3690dd31-8e86-414f-aa6f-c0abe3877d9f",
-    "title" : "Daily Reminder",
-    "content" : "Spend 30 minutes learning a new Java feature every day.",
-    "createdAt" : 1764342968006,
-    "updatedAt" : 0
-  },
-  "09ecd66a-b886-41fe-822d-d22b3fd109c0" : {
-    "id" : "09ecd66a-b886-41fe-822d-d22b3fd109c0",
-    "title" : "Frontend Task",
-    "content" : "Implement responsive navbar using React Bootstrap.",
-    "createdAt" : 1764342927710,
-    "updatedAt" : 0
-  },
-  "20b30190-0c4c-4d16-ad5a-b5ccd703d34b" : {
-    "id" : "20b30190-0c4c-4d16-ad5a-b5ccd703d34b",
+  "93ce1c05-c731-4fd4-980b-0c14d3af1b22" : {
+    "id" : "93ce1c05-c731-4fd4-980b-0c14d3af1b22",
     "title" : "Meeting Notes",
     "content" : "Discussed spring planning and code refactoring tasks.",
-    "createdAt" : 1764342963153,
-    "updatedAt" : 0
+    "createdAt" : 1764679122504,
+    "updatedAt" : 1764679122504
   },
-  "5b3baece-ca4d-4595-bded-fba7098a5aae" : {
-    "id" : "5b3baece-ca4d-4595-bded-fba7098a5aae",
-    "title" : "Fitness Plan",
-    "content" : "Morning run + 15-minute strength training.",
-    "createdAt" : 1764342979029,
-    "updatedAt" : 0
+  "8c275792-b499-4f3e-9bd9-e8e1cfdce1db" : {
+    "id" : "8c275792-b499-4f3e-9bd9-e8e1cfdce1db",
+    "title" : "Daily Reminder",
+    "content" : "Spend 30 minutes learning a new Java feature every day.",
+    "createdAt" : 1764679128925,
+    "updatedAt" : 1764679128925
   },
-  "306164fe-4bc1-4aa9-a54d-5e1ac02b59f3" : {
-    "id" : "306164fe-4bc1-4aa9-a54d-5e1ac02b59f3",
-    "title" : "Java Map Notes",
-    "content" : "Remember: HashMap is not thread-safe. Use ConcurrentHashMap for concurrency.",
-    "createdAt" : 1764342914167,
-    "updatedAt" : 0
-  },
-  "74aaef7e-bac7-4e5c-a209-e1e8d0f99faa" : {
-    "id" : "74aaef7e-bac7-4e5c-a209-e1e8d0f99faa",
-    "title" : "Test Title",
-    "content" : "This is a test note",
-    "createdAt" : 1764598684517,
-    "updatedAt" : 0
-  },
-  "c141aab6-a0c2-4d70-81c0-0f39ff8df4dc" : {
-    "id" : "c141aab6-a0c2-4d70-81c0-0f39ff8df4dc",
-    "title" : "Java Collections Framework",
-    "content" : "Collections include Lists, Sets, and Maps. Common classes: ArrayList, HashSet, HashMap.",
-    "createdAt" : 1764596399280,
-    "updatedAt" : 0
-  },
-  "12cf28df-3df4-4416-80d7-f903492f1371" : {
-    "id" : "12cf28df-3df4-4416-80d7-f903492f1371",
-    "title" : "Test Title",
-    "content" : "This is a test note",
-    "createdAt" : 1764598695491,
-    "updatedAt" : 0
-  },
-  "4e393ed4-323a-4249-970e-5292d317949a" : {
-    "id" : "4e393ed4-323a-4249-970e-5292d317949a",
-    "title" : "SQL Query Reminder",
-    "content" : "Use LEFT Join when you need all rows from the left table, even without a match.",
-    "createdAt" : 1764342944786,
-    "updatedAt" : 0
-  },
-  "99197939-622b-46cf-a3f6-712ab6a0d453" : {
-    "id" : "99197939-622b-46cf-a3f6-712ab6a0d453",
-    "title" : "Streams API",
-    "content" : "Java Streams enable functional-style operations on collections using methods like map(), filter(), and collect().",
-    "createdAt" : 1764595931316,
-    "updatedAt" : 0
-  },
-  "6370dd18-e6f8-4e79-ad1a-1e5e57f32cff" : {
-    "id" : "6370dd18-e6f8-4e79-ad1a-1e5e57f32cff",
+  "258de88a-77dc-4e7c-bcda-9c77d5243209" : {
+    "id" : "258de88a-77dc-4e7c-bcda-9c77d5243209",
     "title" : "Django Practice",
     "content" : "Experiment with Django class-based views this week.",
-    "createdAt" : 1764342973962,
-    "updatedAt" : 0
+    "createdAt" : 1764679135077,
+    "updatedAt" : 1764679135077
   },
-  "e5f4b5b0-87eb-4bdd-bbb5-c89d8805fc45" : {
-    "id" : "e5f4b5b0-87eb-4bdd-bbb5-c89d8805fc45",
+  "1790ab29-f48d-422b-a826-748a321aeed3" : {
+    "id" : "1790ab29-f48d-422b-a826-748a321aeed3",
+    "title" : "Understanding Reactive Streams",
+    "content" : "Mutiny Uni and Multi help handle async operations elegantly.",
+    "createdAt" : 1764679060020,
+    "updatedAt" : 1764679060020
+  },
+  "2fd675fe-2b62-4603-b5e8-28cc56d12e41" : {
+    "id" : "2fd675fe-2b62-4603-b5e8-28cc56d12e41",
     "title" : "REST API Idea",
     "content" : "Build a simple todo app with filtering by completion status.",
-    "createdAt" : 1764342957212,
-    "updatedAt" : 0
+    "createdAt" : 1764679115467,
+    "updatedAt" : 1764679115467
   },
-  "f6ac8840-13e0-4f49-ba9d-6381fb6fc275" : {
-    "id" : "f6ac8840-13e0-4f49-ba9d-6381fb6fc275",
-    "title" : "Java Collections Framework",
-    "content" : "Collections include Lists, Sets, and Maps. Common classes: ArrayList, HashSet, HashMap.",
-    "createdAt" : 1764596093291,
-    "updatedAt" : 0
+  "4a30a6e7-d397-40bd-be59-312b0aa706e3" : {
+    "id" : "4a30a6e7-d397-40bd-be59-312b0aa706e3",
+    "title" : "Frontend Task",
+    "content" : "Implement responsive navbar using React Bootstrap.",
+    "createdAt" : 1764679091755,
+    "updatedAt" : 1764679091755
   },
-  "0ebd55bd-81df-4918-8f3d-061df5b8ba19" : {
-    "id" : "0ebd55bd-81df-4918-8f3d-061df5b8ba19",
-    "title" : "Test Title",
-    "content" : "This is a test note",
-    "createdAt" : 1764598608869,
-    "updatedAt" : 0
+  "9cdcaa66-c80e-4e02-b3dc-bccb6e6fc15a" : {
+    "id" : "9cdcaa66-c80e-4e02-b3dc-bccb6e6fc15a",
+    "title" : "Fitness Plan",
+    "content" : "Morning run + 15-minute strength training.",
+    "createdAt" : 1764679141103,
+    "updatedAt" : 1764679141103
   },
-  "3da51f86-6351-4843-ab39-e2a29760cfbc" : {
-    "id" : "3da51f86-6351-4843-ab39-e2a29760cfbc",
-    "title" : "Test Title",
-    "content" : "This is a test note",
-    "createdAt" : 1764598713825,
-    "updatedAt" : 0
+  "1a276463-8e83-41ce-b121-5e78ea76d339" : {
+    "id" : "1a276463-8e83-41ce-b121-5e78ea76d339",
+    "title" : "SQL Query Reminder",
+    "content" : "Use LEFT Join when you need all rows from the left table, even without a match.",
+    "createdAt" : 1764679100116,
+    "updatedAt" : 1764679100116
+  },
+  "c4c1411e-e9c9-466c-8858-6613f093689d" : {
+    "id" : "c4c1411e-e9c9-466c-8858-6613f093689d",
+    "title" : "Java Map Notes",
+    "content" : "Remember: HashMap is not thread-safe. Use ConcurrentHashMap for concurrency.",
+    "createdAt" : 1764679082627,
+    "updatedAt" : 1764679082627
+  },
+  "5f609d1c-56ae-4ed4-a15c-83f1050463ac" : {
+    "id" : "5f609d1c-56ae-4ed4-a15c-83f1050463ac",
+    "title" : "This is a test title 25",
+    "content" : "67 yeah!",
+    "createdAt" : 1764688385748,
+    "updatedAt" : 1764688963861
   }
 }
