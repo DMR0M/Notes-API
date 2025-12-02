@@ -1,0 +1,9 @@
+{
+  "version": "1",
+  "name": "Quarkus + Mutiny Training",
+  "type": "collection",
+  "ignore": [
+    "node_modules",
+    ".git"
+  ]
+}

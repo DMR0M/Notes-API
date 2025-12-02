@@ -1,0 +1,16 @@
+meta {
+  name: Get Note by UUID
+  type: http
+  seq: 4
+}
+
+get {
+  url: http://localhost:8080/notes/8d19f11c-673d-4b8a-bd15-3898d9455327
+  body: none
+  auth: inherit
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

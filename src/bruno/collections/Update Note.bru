@@ -1,0 +1,23 @@
+meta {
+  name: Update Note
+  type: http
+  seq: 6
+}
+
+patch {
+  url: http://localhost:8080/notes/8d19f11c-673d-4b8a-bd15-3898d9455327
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "title": "This is a test title",
+    "content": "Hello World"
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

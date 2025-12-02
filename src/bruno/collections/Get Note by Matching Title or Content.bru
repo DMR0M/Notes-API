@@ -1,0 +1,21 @@
+meta {
+  name: Get Note by Matching Title or Content
+  type: http
+  seq: 5
+}
+
+get {
+  url: http://localhost:8080/notes/search?title=java&content=java
+  body: none
+  auth: inherit
+}
+
+params:query {
+  title: java
+  content: java
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}
