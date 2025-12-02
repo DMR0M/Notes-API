@@ -1,0 +1,42 @@
+[
+  {
+    "title": "Understanding Reactive Streams",
+    "content": "Mutiny Uni and Multi help handle async operations elegantly."
+  },
+  {
+    "title": "Java Map Notes",
+    "content": "Remember: HashMap is not thread-safe. Use ConcurrentHashMap for concurrency."
+  },
+  {
+    "title": "Frontend Task",
+    "content": "Implement responsive navbar using React Bootstrap."
+  },
+  {
+    "title": "SQL Query Reminder",
+    "content": "Use LEFT Join when you need all rows from the left table, even without a match."
+  },
+  {
+    "title": "Linux Commands Review",
+    "content": "df -h shows disk usage in human readable format."
+  },
+  {
+    "title": "REST API Idea",
+    "content": "Build a simple todo app with filtering by completion status."
+  },
+  {
+    "title": "Meeting Notes",
+    "content": "Discussed spring planning and code refactoring tasks."
+  },
+  {
+    "title": "Daily Reminder",
+    "content": "Spend 30 minutes learning a new Java feature every day."
+  },
+  {
+    "title": "Django Practice",
+    "content": "Experiment with Django class-based views this week."
+  },
+  {
+    "title": "Fitness Plan",
+    "content": "Morning run + 15-minute strength training."
+  }
+]
